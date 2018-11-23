@@ -10,17 +10,17 @@ import UIKit
 
 class QRCodeController: UIViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        DXBrightness.saveDefaultBrightness()
-        DXBrightness.graduallySetBrightness(value: 0.8)
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // 恢复之前的亮度
-        DXBrightness.graduallyResumeBrightness()
-    }
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    DXBrightness.saveDefaultBrightness()
+    DXBrightness.graduallySetBrightness(value: 0.8)
+}
+override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    DXBrightness.graduallyResumeBrightness()
+}
 
     override func viewDidLoad() {
         super.viewDidLoad()
