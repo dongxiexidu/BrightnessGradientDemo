@@ -50,7 +50,9 @@ class DXBrightness: NSObject {
         for i in 0...times {
             queue.addOperation {
                 Thread.sleep(forTimeInterval: 1/180)
-                UIScreen.main.brightness = brightness + CGFloat(i) * step
+                DispatchQueue.main.async {
+                    UIScreen.main.brightness = brightness + CGFloat(i) * step
+                }
             }
         }
         
@@ -71,7 +73,9 @@ class DXBrightness: NSObject {
         }
         queue.cancelAllOperations()
         queue.addOperation {
-            UIScreen.main.brightness = currentBrightness
+            DispatchQueue.main.async {
+                UIScreen.main.brightness = currentBrightness
+            }
         }
     }
 }
